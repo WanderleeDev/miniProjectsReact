@@ -2,46 +2,48 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 //  interface
 import { IDigiData } from "../../API/interface/IDigiData.interface";
-
-interface IGetData  {
-  data : IDigiData[] | null,
-  isLoading : boolean,
-  errors : null,
-}
+import { IGetData } from "./interface/IGetData.interface";
 
 export const useFetch = (url: string) => {
-  const [state, setState] = useState(<IGetData>{
+  const [state, setState] = useState<IGetData>({
     data: null,
     isLoading: true,
     errors : null
   })
 
-  const getData = async () => {
-    axios.get<IDigiData[]>(url)
+  const getData = (AbortController: AbortController) => {
+    axios.get<IDigiData[]>(url,{ signal: AbortController.signal })
     .then(response => {
-        console.log(url);
-        setState({
-          data: response.data,
-          isLoading: false,
-          errors: null
-        })
+        setState(prev => ({
+          ...prev,
+            data: response.data,
+        }))
       })
       .catch(err => {
-        setState({
-          data: null,
-          isLoading: false,
+        setState(prev => ({
+          ...prev,
           errors: err
-        })
+        }))
         console.error(err)
       })
-      .finally(() => console.log('process finally'))
+      .finally(() => {
+
+          setState( prev => ({ 
+            ...prev ,
+            isLoading: false 
+          })) 
+        
+        console.log('process finally')
+      })
       
     }
+    
   useEffect(() => {
     if (!url) return
-    getData()
-  }, [ url ])
+    const abortController = new AbortController()
+    getData(abortController)
+    return () => abortController.abort()
+  }, [url])
 
   return state
 }
-
