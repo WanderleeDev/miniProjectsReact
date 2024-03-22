@@ -24,7 +24,7 @@ export default function GalleryCats() {
         <p className="text-font-xl font-bold max-w-md leading-tight">
           66+ Breeds For you to discover
         </p>
-        <HighlightLink text="See more" route="/breeds" />
+        <HighlightLink label="Go to Top 10 Breeds" text="See more" route="/breeds" />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-12">
         <Suspense fallback={<div>Cargando ...</div>}>
@@ -32,7 +32,7 @@ export default function GalleryCats() {
             <Link href={`cat/${breeds?.[0].name}`} key={id}>
               <CatCard
                 size={250}
-                alt={breeds?.[0].name}
+                alt={`${breeds?.[0].name ?? ''} cat`}
                 src={url}
                 hasTitle={true}
                 key={id}

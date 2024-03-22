@@ -14,8 +14,8 @@ export default function SearchBarMobile() {
       >
         <button
           onClick={() => setIsViewSearchBar(false)}
-          title="close search bar"
-          aria-label="close search bar mobile"
+          title="close mobile menu"
+          aria-label="close mobile menu"
           className="justify-self-end text-black hover:bg-slate-100 p-3 rounded-lg"
           type="button"
         >

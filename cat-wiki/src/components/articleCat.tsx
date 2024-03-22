@@ -17,7 +17,7 @@ export default function ArticleCat() {
           Having a cat around you can actually trigger the release of calming
           chemicals in your body which lower your stress and anxiety leves
         </p>
-        <HighlightLink text="READ MORE" route="/blog" />
+        <HighlightLink label="See page 404 Not Found" text="READ MORE" route="/blog" />
       </div>
 
       <figure className="grid grid-cols-12 grid-rows-5 justify-self-center lg:max-w-lg lg:justify-self-end">

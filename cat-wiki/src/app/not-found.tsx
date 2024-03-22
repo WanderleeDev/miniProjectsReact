@@ -6,7 +6,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Not Found",
   description: "We can't seem to find the page you were looking for",
-}
+};
 
 export default function NotFoundPage() {
   return (
@@ -19,9 +19,17 @@ export default function NotFoundPage() {
         height={500}
       />
       <div className="flex flex-col gap-12">
-        <figcaption className="text-font-3xl font-bold text-center sm:text-left ">404</figcaption>
-        <p className="sm:text-font-lg leading-snug">We can't seem to find the page you were looking</p>
-        <HighlightLink text="Go back home" route="/" /> 
+        <figcaption className="text-font-3xl font-bold text-center sm:text-left ">
+          404
+        </figcaption>
+        <p className="sm:text-font-lg leading-snug">
+          We can't seem to find the page you were looking
+        </p>
+        <HighlightLink
+          label="Back to main page"
+          text="Back to main page"
+          route="/"
+        />
       </div>
     </figure>
   );
