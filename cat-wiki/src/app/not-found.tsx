@@ -1,6 +1,12 @@
 import Image from "next/image";
 import notFoundImage from "../../public/assets/404.webp";
 import HighlightLink from "@/components/highlightLink";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Not Found",
+  description: "We can't seem to find the page you were looking for",
+}
 
 export default function NotFoundPage() {
   return (

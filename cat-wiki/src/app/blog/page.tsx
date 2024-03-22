@@ -1,4 +1,10 @@
 import NotFoundPage from "../not-found"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Blog Page",
+}
 
 export default function Blog() {
   return (

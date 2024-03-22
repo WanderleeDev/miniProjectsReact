@@ -3,6 +3,12 @@ import { fetchData } from "@/helpers/fetchData,";
 import { ICat } from "@/interfaces/IBreeds.interface";
 import Loader from "@/utils/Loader/loader";
 import { Suspense } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Top 10 breeds",
+  description: "Top 10 most searched breeds",
+}
 
 const data = fetchData<ICat[]>({
   url: `${process.env.NEXT_PUBLIC_API_CAT ?? ""}images/search?`,

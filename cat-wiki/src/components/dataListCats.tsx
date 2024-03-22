@@ -14,7 +14,7 @@ export default function DataListCats({ cats, size }: Props): JSX.Element {
 
   return (
     <ul
-      className={`grid bg-white text-black py-2 max-h-56 overflow-y-scroll rounded-2xl translate-y-4 absolute w-full pointer-events-none  opacity-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity ${size ? "w-80" : "w-full"}`}
+      className={`grid bg-white text-black py-2 max-h-56 overflow-y-scroll rounded-[.2rem] scroll translate-y-4 absolute w-full pointer-events-none  opacity-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity ${size ? "w-80" : "w-full"}`}
     >
       {cats.map(({ id, breeds }) => (
         <li

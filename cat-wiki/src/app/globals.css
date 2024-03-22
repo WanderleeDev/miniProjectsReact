@@ -4,9 +4,6 @@
 
 :root {
   --clr-base: #fff;
-  /* --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
 
   /* fonts size */
   --font-xs: clamp(0.3rem, 0.1vw + 0.3rem, 0.4rem);
@@ -37,8 +34,28 @@ body {
   }
 
   .hiddenMobileBar {
-      transform: translateY(-100%);
-      opacity: 0;
-      pointer-events: none;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .scroll {
+    --bg-scroll: #a3a3a3;
+    --bg-thumb: rgb(0, 0, 0);
+
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--bg-scroll);
+      border-radius: .2rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--bg-thumb);
+      border-radius: 1rem;
+      border: .2rem solid var(--bg-scroll);
+    }
   }
 }

@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-dvh grid grid-rows-[auto_1fr_auto] px-2 max-w-screen-xl mx-auto pt-2 text-lg`} >
+      <body className={`${inter.className} min-h-dvh grid grid-rows-[auto_1fr_auto] px-2 max-w-screen-xl mx-auto pt-2 text-lg scroll`} >
         <HeaderPage />
         <main>
           {children}

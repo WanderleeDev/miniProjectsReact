@@ -26,7 +26,7 @@ export default function CatCardInfo({
           <figcaption className="text-font-md font-medium">
             {`${indexCat}.  ${title}`}
           </figcaption>
-          <p className="max-h-28 overflow-y-scroll lg:overflow-auto lg:max-h-max">{description}</p>
+          <p className="max-h-28 overflow-y-scroll lg:overflow-auto lg:max-h-max scroll">{description}</p>
         </div>
       </Link>
     </figure>

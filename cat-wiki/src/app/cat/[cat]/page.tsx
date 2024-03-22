@@ -6,7 +6,15 @@ import { ISingleBreed } from "@/interfaces/IBreeds.interface";
 import { IParamCat } from "@/interfaces/IParamCat.interface";
 import ErrorBoundary from "@/utils/ErrorBoundary";
 import Loader from "@/utils/Loader/loader";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const generateMetadata = ({ params: { cat } }: IParamCat): Metadata => {
+  return {
+    title: cat,
+    description: `Cat Info - ${cat}`,
+  };
+};
 
 export default async function CatInfo({ params: { cat } }: IParamCat) {
   const formatParam = formatString(cat, {

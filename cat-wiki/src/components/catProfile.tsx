@@ -28,7 +28,7 @@ export default function CatProfile({
   return (
     <>
       <CatCard styles={catCardStyles} src={url} size={288} alt={alt} />
-      <div className="flex flex-col gap-8 max-w-xl xl:max-w-2xl">
+      <div className="flex flex-col mx-auto gap-8 max-w-xl lg:mx-[initial] xl:max-w-2xl">
         <h2 className="text-font-lg font-semibold">{title}</h2>
         <p>{description}</p>
         <DataTable rowTable={rowTable} />
