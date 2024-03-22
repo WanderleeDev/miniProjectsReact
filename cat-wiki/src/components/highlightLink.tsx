@@ -13,7 +13,7 @@ export default function HighlightLink({ route, text }: Props) {
       href={route}
     >
       {text}
-      <FaLongArrowAltRight className="group-hover:animate-fade-out-right  group-hover:animate-duration-1000  group-hover:animate-iteration-count-infinite" />
+      <FaLongArrowAltRight className="group-hover:animate-fade-left group-hover:animate-infinite group-hover:animate-duration-[1100ms] group-hover:animate-ease-in" />
     </Link>
   );
 }

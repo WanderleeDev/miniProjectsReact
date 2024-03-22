@@ -1,17 +1,24 @@
+import { Suspense } from "react";
+import ErrorBoundary from "@/utils/ErrorBoundary";
+import Loader from "@/utils/loader";
 import CatProfile from "@/components/catProfile";
 import GridCats from "@/components/gridCats";
 import fetchCat from "@/helpers/fetchCat";
-import { ICat } from "@/interfaces/IBreeds.interface";
+import formatString from "@/helpers/formatString";
+import { ISingleBreed } from "@/interfaces/IBreeds.interface";
 import { IParamCat } from "@/interfaces/IParamCat.interface";
-import ErrorBoundary from "@/utils/ErrorBoundary";
-import Loader from "@/utils/loader";
-import { Suspense } from "react";
 
 export default async function CatInfo({ params: { cat } }: IParamCat) {
-  const { breeds, url } = await fetchCat<ICat>(
-    `${process.env.NEXT_PUBLIC_API_CAT}images/${cat}`,
+  const formatParam = formatString(cat, {
+    hasReplaceAll: true,
+    toReplace: "%20",
+    replaceWith: "_",
+  });
+  const catData = await fetchCat<ISingleBreed[]>(
+    `${process.env.NEXT_PUBLIC_API_CAT}breeds/search?`,
+    { q: formatParam },
   );
-  
+
   const {
     name,
     description,
@@ -24,13 +31,16 @@ export default async function CatInfo({ params: { cat } }: IParamCat) {
     social_needs,
     stranger_friendly,
     id,
-  } = breeds?.[0];
+    alt_names,
+    image,
+  } = catData[0];
 
   return (
     <article className="flex flex-wrap gap-8 md:gap-24 justify-center md:justify-normal">
       <Suspense fallback={<Loader />}>
         <CatProfile
-          alt={name}
+          title={name}
+          alt={alt_names || `${name} photo`}
           description={description}
           rowTable={{
             adaptability,
@@ -42,7 +52,7 @@ export default async function CatInfo({ params: { cat } }: IParamCat) {
             social_needs,
             stranger_friendly,
           }}
-          url={url}
+          url={image.url}
         />
       </Suspense>
       <ErrorBoundary>

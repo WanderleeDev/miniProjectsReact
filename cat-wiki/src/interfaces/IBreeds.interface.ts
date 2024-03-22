@@ -51,3 +51,15 @@ export interface Weight {
   imperial: string;
   metric:   string;
 }
+
+export interface Image {
+  id:     string;
+  width:  number;
+  height: number;
+  url:    string;
+}
+
+export interface ISingleBreed extends Breed {
+  alt_names: string;
+  image: Image;
+}

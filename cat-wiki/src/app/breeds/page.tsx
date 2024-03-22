@@ -29,7 +29,7 @@ export default function Blog() {
               description={breeds[0]?.description}
               url={url}
               key={id}
-              route={`/cat/${id}`}
+              route={`/cat/${breeds[0]?.name}`}
               indexCat={i + 1}
             />
           ))}

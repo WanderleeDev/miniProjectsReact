@@ -1,6 +1,5 @@
 import { fetchData } from "@/helpers/fetchData,";
 import { ICat } from "@/interfaces/IBreeds.interface";
-import ErrorBoundary from "@/utils/ErrorBoundary";
 import Link from "next/link";
 import { Suspense } from "react";
 import CatCard from "./catCard";
@@ -10,12 +9,12 @@ const url: string = `${process.env.NEXT_PUBLIC_API_CAT}images/search?` ?? "";
 const params = {
   limit: "4",
   page: "0",
-  'has_breeds': '1'
+  has_breeds: "1",
 };
 
 const catData = fetchData<ICat[]>({ url, params });
 
-export default function GalleryCats( ) {
+export default function GalleryCats() {
   const razas = catData.read();
 
   return (
@@ -28,21 +27,19 @@ export default function GalleryCats( ) {
         <HighlightLink text="See more" route="/breeds" />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-12">
-        <ErrorBoundary>
-          <Suspense fallback={<div>Cargando ...</div>}>
-            {razas.map(({ id, url, breeds }) => (
-              <Link href={`cat/${id}`} key={id}>
-                <CatCard
-                  size={250}
-                  alt={breeds?.[0].name}
-                  src={url}
-                  hasTitle={true}
-                  key={id}
-                />
-              </Link>
-            ))}
-          </Suspense>
-        </ErrorBoundary>
+        <Suspense fallback={<div>Cargando ...</div>}>
+          {razas.map(({ id, url, breeds }) => (
+            <Link href={`cat/${breeds?.[0].name}`} key={id}>
+              <CatCard
+                size={250}
+                alt={breeds?.[0].name}
+                src={url}
+                hasTitle={true}
+                key={id}
+              />
+            </Link>
+          ))}
+        </Suspense>
       </div>
     </div>
   );
