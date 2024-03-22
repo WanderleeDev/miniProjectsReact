@@ -34,14 +34,14 @@ export default function SearchBar({ hasBorder, fullSize }: Props) {
     <div className="relative group">
       <label
         className={`rounded-3xl grid grid-cols-[calc(100%-2rem)_2rem] items-center px-6 gap-2 bg-white text-clr-1 overflow-hidden group ${hasBorder && "border-2 border-slate-600"} ${fullSize ? "w-80" : "w-full"}`}
-        htmlFor="search"
+        htmlFor={`searchInput-${fullSize && 'fullSize'}`}
       >
         <input
           autoComplete="off"
           className={`placeholder:text-clr-1 py-3 text-lg outline-none w-full`}
           type="text"
-          name="search"
-          id="search"
+          name={`searchInput-${fullSize && 'fullSize'}`}
+          id={`searchInput-${fullSize && 'fullSize'}`}
           value={inputValue}
           placeholder="Search"
           onChange={handleInput}
