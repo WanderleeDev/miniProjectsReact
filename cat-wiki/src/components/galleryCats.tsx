@@ -32,7 +32,7 @@ export default function GalleryCats() {
             <Link href={`cat/${breeds?.[0].name}`} key={id}>
               <CatCard
                 size={250}
-                alt={`${breeds?.[0].name ?? ''} cat`}
+                alt={`${breeds?.[0].name}`}
                 src={url}
                 hasTitle={true}
                 key={id}
