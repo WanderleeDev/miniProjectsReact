@@ -1,12 +1,12 @@
-import { Suspense } from "react";
-import ErrorBoundary from "@/utils/ErrorBoundary";
-import Loader from "@/utils/loader";
 import CatProfile from "@/components/catProfile";
 import GridCats from "@/components/gridCats";
 import fetchCat from "@/helpers/fetchCat";
 import formatString from "@/helpers/formatString";
 import { ISingleBreed } from "@/interfaces/IBreeds.interface";
 import { IParamCat } from "@/interfaces/IParamCat.interface";
+import ErrorBoundary from "@/utils/ErrorBoundary";
+import Loader from "@/utils/Loader/loader";
+import { Suspense } from "react";
 
 export default async function CatInfo({ params: { cat } }: IParamCat) {
   const formatParam = formatString(cat, {

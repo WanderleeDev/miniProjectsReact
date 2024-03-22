@@ -28,6 +28,15 @@ const config: Config = {
         'font-xl': 'clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem)',
         'font-2xl':' clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem)',
         'font-3xl': 'clamp(3.05rem, 3.54vw + 2.17rem, 5rem)',
+      },
+      keyframes: {
+        'disabledEvents' : {
+          '0%': { PointerEvents: 'auto' },
+          '100%': { PointerEvents: 'none' } 
+        }
+      },
+      animation: {
+        'disabledEvents': 'disabledEvents 0.5s linear forwards',
       }
     },
   },

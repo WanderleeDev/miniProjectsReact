@@ -1,8 +1,8 @@
 import CatCardInfo from "@/components/catCardInfo";
 import { fetchData } from "@/helpers/fetchData,";
-import { Suspense } from "react";
-import Loader from "@/utils/loader";
 import { ICat } from "@/interfaces/IBreeds.interface";
+import Loader from "@/utils/Loader/loader";
+import { Suspense } from "react";
 
 const data = fetchData<ICat[]>({
   url: `${process.env.NEXT_PUBLIC_API_CAT ?? ""}images/search?`,

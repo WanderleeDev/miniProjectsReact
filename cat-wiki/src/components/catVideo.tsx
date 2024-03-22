@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import Loader from "@/utils/Loader/loader";
+import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import Loader from "@/utils/loader";
 
 export default function CatVideo() {
   const [isClient, setIsClient] = useState(false);

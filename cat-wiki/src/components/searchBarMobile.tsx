@@ -21,7 +21,7 @@ export default function SearchBarMobile() {
         >
           <AiOutlineClose />
         </button>
-        <SearchBar hasBorder={true} />
+        <SearchBar hasBorder={true} fullSize={false}/>
       </div>
 
       <button

@@ -9,14 +9,14 @@ import DataListCats from "./dataListCats";
 
 interface Props {
   hasBorder?: boolean;
-  fullSize?: true;
+  fullSize: boolean;
 }
 
 export default function SearchBar({ hasBorder, fullSize }: Props) {
   const catsData = useContext<ICat[]>(CatsContext);
   const [inputValue, setInputValue] = useState("");
   const router = useRouter();
-
+  
   const navigateTo = (route: string) => router.push(`/cat/${route}`);
   const handleChange = (e: React.KeyboardEvent): void => {
     if (e.key !== "Enter") return;
@@ -33,13 +33,12 @@ export default function SearchBar({ hasBorder, fullSize }: Props) {
   return (
     <div className="relative group">
       <label
-        className={`w-full rounded-3xl grid grid-cols-[calc(100%-2rem)_2rem] items-center px-6 gap-2 bg-white text-clr-1 overflow-hidden group ${hasBorder && "border-2 border-slate-600"}`}
+        className={`rounded-3xl grid grid-cols-[calc(100%-2rem)_2rem] items-center px-6 gap-2 bg-white text-clr-1 overflow-hidden group ${hasBorder && "border-2 border-slate-600"} ${fullSize ? "w-80" : "w-full"}`}
         htmlFor="search"
       >
-        {fullSize}
         <input
           autoComplete="off"
-          className={`placeholder:text-clr-1 py-3 text-lg outline-none ${fullSize ? "w-40" : "w-full"}`}
+          className={`placeholder:text-clr-1 py-3 text-lg outline-none w-full`}
           type="text"
           name="search"
           id="search"
@@ -55,8 +54,7 @@ export default function SearchBar({ hasBorder, fullSize }: Props) {
           />
         </button>
       </label>
-
-      <DataListCats cats={filterCats()} />
+        <DataListCats cats={filterCats()}  size={fullSize} />
     </div>
   );
 }

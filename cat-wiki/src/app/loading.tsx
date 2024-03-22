@@ -1,4 +1,4 @@
-import Loader from '@/utils/loader'
+import Loader from '@/utils/Loader/loader'
 
 export default function Loading() {
   return (
