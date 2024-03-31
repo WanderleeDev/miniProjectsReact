@@ -1,7 +1,7 @@
 # Calculator React 
 App Developed for Coursera Assessment - Basic React
 
-[Live demo]()
+[Live demo](https://calculadora-lac-delta.vercel.app/)
 
 ## Task
 
