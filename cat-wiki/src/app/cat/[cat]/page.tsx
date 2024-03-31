@@ -48,7 +48,7 @@ export default async function CatInfo({ params: { cat } }: IParamCat) {
       <Suspense fallback={<Loader />}>
         <CatProfile
           title={name}
-          alt={alt_names || `${name} photo`}
+          alt={`Image of the ${name} cat`}
           description={description}
           rowTable={{
             adaptability,

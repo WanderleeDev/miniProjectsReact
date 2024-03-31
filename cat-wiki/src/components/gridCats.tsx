@@ -23,7 +23,7 @@ export default async function GridCats({ catID, breed }: Props) {
       </figcaption>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
       {cats.map(({ url, id }) => (
-        <CatCard key={id} alt={breed} src={url} size={250} styles={['w-fit']}/>
+        <CatCard key={id} alt={`Image of the ${breed} cat`} title="" src={url} size={250} styles={['w-fit']}/>
       ))}
       </div>
     </figure>

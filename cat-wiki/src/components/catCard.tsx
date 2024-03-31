@@ -1,13 +1,14 @@
 import Image from "next/image";
 interface Props {
   src: string;
+  title: string;
   alt: string;
   hasTitle?: boolean;
   size?: number;
   styles?: string[];
 }
 
-export default function CatCard({ alt, src, hasTitle, size, styles }: Props) {
+export default function CatCard({ alt, src, hasTitle, size, title, styles }: Props) {
   return (
     <figure className="mx-auto lg:mx-[initial]">
       <div className="relative first:after:absolute first:after:w-12 first:after:h-5/6 first:after:top-2/4 first:after:-translate-y-2/4 first:after:bg-[#dec68b] first:after:rounded-xl first:after:-left-2 first:after:-z-10">
@@ -20,9 +21,9 @@ export default function CatCard({ alt, src, hasTitle, size, styles }: Props) {
         />
       </div>
       <figcaption
-        className={`${!hasTitle && "hidden"} font-medium text-xs lg:text-base pt-4`}
+        className={`${!hasTitle && "hidden"} font-medium text-xs lg:text-base pt-4 text-center`}
       >
-        {alt}
+        {title}
       </figcaption>
     </figure>
   );

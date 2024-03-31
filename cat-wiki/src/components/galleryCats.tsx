@@ -33,6 +33,7 @@ export default function GalleryCats() {
               <CatCard
                 size={250}
                 alt={`Image of the ${breeds?.[0].name} cat`}
+                title={breeds?.[0].name}
                 src={url}
                 hasTitle={true}
                 key={id}
