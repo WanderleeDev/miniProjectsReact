@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-.u-translate {
-  translate: 30%;
+@layer utilities {
+  
+  .u-translate {
+    translate: 30%;
+  }
+  
+  .u-fullscreen {
+    z-index: -10;
+  }
+  
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 5% 1fr 5%;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+    padding-top: 2rem;
+  }
+  
+  .grid-center {
+    grid-column: 2/3;
+  }
 }
+
+

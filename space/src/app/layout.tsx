@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import VideoBanner from "@/components/VideoBanner";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,11 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-[#020104]">
-      <body className={inter.className}>
-        <Navbar />
-        <VideoBanner />
-        <main>{children}</main>
+    <html lang="en">
+      <body
+        className={`${inter.className}  relative text-white min-h-dvh grid-layout`}
+      >
+        <div className="col-[2/4]">
+          <Navbar />
+          <VideoBanner />
+        </div>
+        <main className="grid-center">{children}</main>
       </body>
     </html>
   );
